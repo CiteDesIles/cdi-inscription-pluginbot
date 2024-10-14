@@ -1,0 +1,8 @@
+name: CDI-InscriptionBotPlugin
+main: fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin
+version: 1.0
+api-version: 1.21
+author: Azrotho
+commands:
+  link:
+    description: "Lier Joueur <-> Discord"
