@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.UUID;
 
 public class DatabaseRequestManager {
 
@@ -20,10 +21,21 @@ public class DatabaseRequestManager {
         return false;
     }
 
-    public static void linkPlayer(Player player, String discordId) {
+    public static boolean isAlreadyLinked(String discordID) {
+        try(Connection connection = DatabaseManager.MAIN_DB.getDatabaseAccess().getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM player WHERE discordid = ?");
+            preparedStatement.setString(1, discordID);
+            return preparedStatement.executeQuery().next();
+        } catch (Exception e) {
+            CDIInscriptionBotPlugin.instance().getLogger().severe("Error while checking if player is already linked");
+        }
+        return false;
+    }
+
+    public static void linkPlayer(UUID uuid, String discordId) {
         try(Connection connection = DatabaseManager.MAIN_DB.getDatabaseAccess().getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO player (uuid, discordid, team) VALUES (?, ?, ?)");
-            preparedStatement.setString(1, player.getUniqueId().toString());
+            preparedStatement.setString(1, uuid.toString());
             preparedStatement.setString(2, discordId);
             preparedStatement.setString(3, "none");
             preparedStatement.executeUpdate();
