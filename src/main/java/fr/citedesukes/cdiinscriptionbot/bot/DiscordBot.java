@@ -2,6 +2,7 @@ package fr.citedesukes.cdiinscriptionbot.bot;
 
 import java.util.EnumSet;
 
+import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -12,11 +13,13 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
 public class DiscordBot {
+    private CDIInscriptionBotPlugin plugin;
     JDA jda;
     private final String token;
 
-    public DiscordBot(String token) {
+    public DiscordBot(String token, CDIInscriptionBotPlugin plugin) {
         this.token = token;
+        this.plugin = plugin;
     }
 
     public void start() {
