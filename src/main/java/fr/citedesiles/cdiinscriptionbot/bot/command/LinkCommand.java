@@ -1,9 +1,8 @@
-package fr.citedesukes.cdiinscriptionbot.bot.command;
+package fr.citedesiles.cdiinscriptionbot.bot.command;
 
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
-import fr.citedesukes.cdiinscriptionbot.objects.RequestToLink;
-import fr.citedesukes.cdiinscriptionbot.postgresl.DatabaseManager;
-import fr.citedesukes.cdiinscriptionbot.utils.DatabaseRequestManager;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.objects.RequestToLink;
+import fr.citedesiles.cdiinscriptionbot.utils.DatabaseRequestManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 public class LinkCommand {

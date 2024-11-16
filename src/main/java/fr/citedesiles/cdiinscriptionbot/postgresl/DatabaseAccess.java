@@ -1,8 +1,8 @@
-package fr.citedesukes.cdiinscriptionbot.postgresl;
+package fr.citedesiles.cdiinscriptionbot.postgresl;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
 
 import java.sql.Connection;
 import java.sql.SQLException;

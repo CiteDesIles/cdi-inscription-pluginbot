@@ -1,6 +1,6 @@
-package fr.citedesukes.cdiinscriptionbot.postgresl;
+package fr.citedesiles.cdiinscriptionbot.postgresl;
 
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
 
 public enum DatabaseManager {
 

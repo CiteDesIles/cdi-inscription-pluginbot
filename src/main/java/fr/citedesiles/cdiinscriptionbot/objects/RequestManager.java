@@ -1,4 +1,4 @@
-package fr.citedesukes.cdiinscriptionbot.objects;
+package fr.citedesiles.cdiinscriptionbot.objects;
 
 import java.util.ArrayList;
 import java.util.List;

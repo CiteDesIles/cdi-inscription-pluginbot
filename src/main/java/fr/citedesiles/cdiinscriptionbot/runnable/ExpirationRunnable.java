@@ -1,7 +1,7 @@
-package fr.citedesukes.cdiinscriptionbot.runnable;
+package fr.citedesiles.cdiinscriptionbot.runnable;
 
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
-import fr.citedesukes.cdiinscriptionbot.objects.RequestManager;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.objects.RequestManager;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class ExpirationRunnable extends BukkitRunnable {

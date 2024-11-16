@@ -1,12 +1,15 @@
-package fr.citedesukes.cdiinscriptionbot;
+package fr.citedesiles.cdiinscriptionbot;
 
-import fr.citedesukes.cdiinscriptionbot.objects.RequestManager;
-import fr.citedesukes.cdiinscriptionbot.postgresl.DatabaseManager;
-import fr.citedesukes.cdiinscriptionbot.runnable.ExpirationRunnable;
+import fr.citedesiles.cdiinscriptionbot.commands.LinksCommandExecutor;
+import fr.citedesiles.cdiinscriptionbot.objects.RequestManager;
+import fr.citedesiles.cdiinscriptionbot.postgresl.DatabaseManager;
+import fr.citedesiles.cdiinscriptionbot.runnable.ExpirationRunnable;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.citedesukes.cdiinscriptionbot.bot.DiscordBot;
-import fr.citedesukes.cdiinscriptionbot.utils.ConfigManager;
+import fr.citedesiles.cdiinscriptionbot.bot.DiscordBot;
+import fr.citedesiles.cdiinscriptionbot.utils.ConfigManager;
+
+import java.io.IOException;
 
 public class CDIInscriptionBotPlugin extends JavaPlugin {
     private DiscordBot bot;
@@ -19,6 +22,14 @@ public class CDIInscriptionBotPlugin extends JavaPlugin {
         configManager = new ConfigManager(this);
         requestManager = new RequestManager();
         plugin = this;
+
+        try {
+            configManager.loadConfig();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        getCommand("link").setExecutor(new LinksCommandExecutor(this));
 
         DatabaseManager.initAllDataBaseConnections();
 

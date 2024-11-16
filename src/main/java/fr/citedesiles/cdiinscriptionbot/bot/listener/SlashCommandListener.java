@@ -1,6 +1,7 @@
-package fr.citedesukes.cdiinscriptionbot.bot.listener;
+package fr.citedesiles.cdiinscriptionbot.bot.listener;
 
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.bot.command.LinkCommand;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -19,10 +20,10 @@ public class SlashCommandListener extends ListenerAdapter {
                 event.reply("Pong!").queue();
                 break;
             case "link":
-                // new LinkCommand().execute(event, plugin);
+                LinkCommand.link(event);
                 break;
             case "unlink":
-                // new UnlinkCommand().execute(event, plugin);
+                LinkCommand.unlink(event);
                 break;
         }
     }

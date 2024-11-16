@@ -1,9 +1,9 @@
-package fr.citedesukes.cdiinscriptionbot.bot;
+package fr.citedesiles.cdiinscriptionbot.bot;
 
 import java.util.EnumSet;
 
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
-import fr.citedesukes.cdiinscriptionbot.bot.listener.SlashCommandListener;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.bot.listener.SlashCommandListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;

@@ -1,6 +1,6 @@
-package fr.citedesukes.cdiinscriptionbot.utils;
+package fr.citedesiles.cdiinscriptionbot.utils;
 
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;

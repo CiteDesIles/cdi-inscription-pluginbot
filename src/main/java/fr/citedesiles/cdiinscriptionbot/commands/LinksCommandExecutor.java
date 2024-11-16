@@ -1,8 +1,8 @@
-package fr.citedesukes.cdiinscriptionbot.commands;
+package fr.citedesiles.cdiinscriptionbot.commands;
 
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
-import fr.citedesukes.cdiinscriptionbot.objects.RequestToLink;
-import fr.citedesukes.cdiinscriptionbot.utils.DatabaseRequestManager;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.objects.RequestToLink;
+import fr.citedesiles.cdiinscriptionbot.utils.DatabaseRequestManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

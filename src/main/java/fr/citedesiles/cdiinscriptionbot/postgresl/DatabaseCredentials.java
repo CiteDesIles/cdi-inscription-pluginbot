@@ -1,4 +1,4 @@
-package fr.citedesukes.cdiinscriptionbot.postgresl;
+package fr.citedesiles.cdiinscriptionbot.postgresl;
 
 public class DatabaseCredentials {
     private String host;

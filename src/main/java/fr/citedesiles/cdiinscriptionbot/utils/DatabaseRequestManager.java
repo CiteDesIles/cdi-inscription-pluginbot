@@ -1,7 +1,7 @@
-package fr.citedesukes.cdiinscriptionbot.utils;
+package fr.citedesiles.cdiinscriptionbot.utils;
 
-import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
-import fr.citedesukes.cdiinscriptionbot.postgresl.DatabaseManager;
+import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.postgresl.DatabaseManager;
 import org.bukkit.entity.Player;
 
 import java.sql.Connection;
