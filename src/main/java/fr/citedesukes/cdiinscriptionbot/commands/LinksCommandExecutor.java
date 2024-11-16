@@ -2,6 +2,7 @@ package fr.citedesukes.cdiinscriptionbot.commands;
 
 import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
 import fr.citedesukes.cdiinscriptionbot.objects.RequestToLink;
+import fr.citedesukes.cdiinscriptionbot.utils.DatabaseRequestManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,6 +23,12 @@ public class LinksCommandExecutor implements CommandExecutor {
         Player player = (Player) commandSender;
         String possibleChars = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+-=[]{}|;:,.<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String code= "";
+
+        if(DatabaseRequestManager.isAlreadyLinked(player)) {
+            player.sendMessage("Vous êtes déjà lié à un compte discord");
+            return true;
+        }
+
         for (int i = 0; i < 6; i++) {
             code += possibleChars.charAt((int) (Math.random() * possibleChars.length()));
         }
