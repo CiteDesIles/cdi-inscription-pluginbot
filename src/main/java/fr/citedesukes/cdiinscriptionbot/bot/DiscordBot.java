@@ -3,6 +3,7 @@ package fr.citedesukes.cdiinscriptionbot.bot;
 import java.util.EnumSet;
 
 import fr.citedesukes.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesukes.cdiinscriptionbot.bot.listener.SlashCommandListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -26,6 +27,7 @@ public class DiscordBot {
         jda = JDABuilder.createLight(token, EnumSet.allOf(GatewayIntent.class))
             .enableIntents(GatewayIntent.GUILD_MEMBERS)
             .setActivity(Activity.playing("Citée des Îles"))
+            .addEventListeners(new SlashCommandListener(plugin))
             .build();
 
         CommandListUpdateAction commands = jda.updateCommands();

@@ -22,7 +22,7 @@ public class CDIInscriptionBotPlugin extends JavaPlugin {
 
         bot = new DiscordBot(getConfig().getString("token"), this);
         bot.start();
-
+        
         ExpirationRunnable expirationRunnable = new ExpirationRunnable(this);
         expirationRunnable.runTaskTimer(this, 0, 0);
     }
