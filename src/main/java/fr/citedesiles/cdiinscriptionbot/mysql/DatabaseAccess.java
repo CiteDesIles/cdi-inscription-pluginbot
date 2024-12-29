@@ -1,4 +1,4 @@
-package fr.citedesiles.cdiinscriptionbot.postgresl;
+package fr.citedesiles.cdiinscriptionbot.mysql;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -18,15 +18,13 @@ public class DatabaseAccess {
     private void setupHikari() {
         final HikariConfig config = new HikariConfig();
 
-        config.setDataSourceClassName("org.postgresql.ds.PGSimpleDataSource");
         config.setMaximumPoolSize(10);
         config.setJdbcUrl(credentials.toURI());
         config.setUsername(credentials.getUsername());
         config.setPassword(credentials.getPassword());
-        config.setMaxLifetime(6000L);
-        config.setIdleTimeout(3000L);
-        config.setLeakDetectionThreshold(3000L);
-        config.setConnectionTimeout(1000L);
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
         this.hikariDataSource = new HikariDataSource(config);
     }

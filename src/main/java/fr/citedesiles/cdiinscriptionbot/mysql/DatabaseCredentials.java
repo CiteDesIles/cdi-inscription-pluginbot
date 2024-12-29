@@ -1,4 +1,4 @@
-package fr.citedesiles.cdiinscriptionbot.postgresl;
+package fr.citedesiles.cdiinscriptionbot.mysql;
 
 public class DatabaseCredentials {
     private String host;
@@ -17,7 +17,7 @@ public class DatabaseCredentials {
 
     public String toURI() {
         final StringBuilder uri = new StringBuilder();
-        uri.append("jdbc:postegresql://")
+        uri.append("jdbc:mysql://")
                 .append(host)
                 .append(":")
                 .append(port)

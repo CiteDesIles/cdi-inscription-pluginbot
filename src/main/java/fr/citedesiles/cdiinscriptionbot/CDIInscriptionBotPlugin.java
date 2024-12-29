@@ -2,7 +2,7 @@ package fr.citedesiles.cdiinscriptionbot;
 
 import fr.citedesiles.cdiinscriptionbot.commands.LinksCommandExecutor;
 import fr.citedesiles.cdiinscriptionbot.objects.RequestManager;
-import fr.citedesiles.cdiinscriptionbot.postgresl.DatabaseManager;
+import fr.citedesiles.cdiinscriptionbot.mysql.DatabaseManager;
 import fr.citedesiles.cdiinscriptionbot.runnable.ExpirationRunnable;
 import org.bukkit.plugin.java.JavaPlugin;
 

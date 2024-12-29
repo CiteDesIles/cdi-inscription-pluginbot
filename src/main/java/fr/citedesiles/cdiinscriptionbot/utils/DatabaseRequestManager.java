@@ -1,7 +1,7 @@
 package fr.citedesiles.cdiinscriptionbot.utils;
 
 import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
-import fr.citedesiles.cdiinscriptionbot.postgresl.DatabaseManager;
+import fr.citedesiles.cdiinscriptionbot.mysql.DatabaseManager;
 import org.bukkit.entity.Player;
 
 import java.sql.Connection;
@@ -12,7 +12,7 @@ public class DatabaseRequestManager {
 
     public static boolean isAlreadyLinked(Player player) {
         try(Connection connection = DatabaseManager.MAIN_DB.getDatabaseAccess().getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM player WHERE uuid = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PLAYER WHERE uuid = ?");
             preparedStatement.setString(1, player.getUniqueId().toString());
             return preparedStatement.executeQuery().next();
         } catch (Exception e) {
@@ -23,7 +23,7 @@ public class DatabaseRequestManager {
 
     public static boolean isAlreadyLinked(String discordID) {
         try(Connection connection = DatabaseManager.MAIN_DB.getDatabaseAccess().getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM player WHERE discordid = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PLAYER WHERE discordid = ?");
             preparedStatement.setString(1, discordID);
             return preparedStatement.executeQuery().next();
         } catch (Exception e) {
@@ -34,7 +34,7 @@ public class DatabaseRequestManager {
 
     public static void linkPlayer(UUID uuid, String discordId) {
         try(Connection connection = DatabaseManager.MAIN_DB.getDatabaseAccess().getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO player (uuid, discordid, team) VALUES (?, ?, ?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO PLAYER (uuid, discordid, team) VALUES (?, ?, ?)");
             preparedStatement.setString(1, uuid.toString());
             preparedStatement.setString(2, discordId);
             preparedStatement.setString(3, "none");
@@ -46,7 +46,7 @@ public class DatabaseRequestManager {
 
     public static void removeLink(String discordID) {
         try(Connection connection = DatabaseManager.MAIN_DB.getDatabaseAccess().getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM player WHERE discordid = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM PLAYER WHERE discordid = ?");
             preparedStatement.setString(1, discordID);
             preparedStatement.executeUpdate();
         } catch (Exception e) {

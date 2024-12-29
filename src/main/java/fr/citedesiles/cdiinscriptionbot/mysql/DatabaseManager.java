@@ -1,4 +1,4 @@
-package fr.citedesiles.cdiinscriptionbot.postgresl;
+package fr.citedesiles.cdiinscriptionbot.mysql;
 
 import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
 
