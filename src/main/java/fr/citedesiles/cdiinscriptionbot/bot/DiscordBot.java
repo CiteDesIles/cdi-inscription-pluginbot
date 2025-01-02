@@ -1,6 +1,7 @@
 package fr.citedesiles.cdiinscriptionbot.bot;
 
 import java.util.EnumSet;
+import java.util.List;
 
 import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
 import fr.citedesiles.cdiinscriptionbot.bot.listener.SlashCommandListener;
@@ -18,8 +19,21 @@ public class DiscordBot {
     JDA jda;
     private final String token;
 
-    public static long INSCRIT_ROLE_ID = 1284899575856889866L;
-    public static long CHEF_ROLE_ID = 1324414953385496586L;
+    public final static long INSCRIT_ROLE_ID = 1284899575856889866L;
+    public final static long CHEF_ROLE_ID = 1324414953385496586L;
+    public final static List<Long> TEAM_ROLE_IDS = List.of(
+        1284899003707818135L,
+        1284899040529485824L,
+        1284899104736018457L,
+        1284899164718628946L,
+        1284899241768259755L,
+        1284899295383912628L,
+        1284899359179280555L,
+        1284899414586163291L,
+        1284899465341435964L,
+        1284899504977350777L
+    );
+
 
     public DiscordBot(String token, CDIInscriptionBotPlugin plugin) {
         this.token = token;
@@ -58,6 +72,9 @@ public class DiscordBot {
             Commands.slash("invite", "Get an invite link to invite a player to your team (team leader only)")
                 .setNameLocalization(DiscordLocale.FRENCH, "invite")
                 .setDescriptionLocalization(DiscordLocale.FRENCH, "Inviter un joueur dans votre équipe (chef d'équipe uniquement)")
+                .addOption(OptionType.USER, "user", "The user you want to invite", true)
+                    .setNameLocalization(DiscordLocale.FRENCH, "user")
+                    .setDescriptionLocalization(DiscordLocale.FRENCH, "L'utilisateur que vous voulez inviter")
         );
 
         commands.queue();
