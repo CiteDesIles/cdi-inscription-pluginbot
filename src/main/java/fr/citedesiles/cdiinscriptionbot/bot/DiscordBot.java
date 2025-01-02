@@ -18,6 +18,9 @@ public class DiscordBot {
     JDA jda;
     private final String token;
 
+    public static long INSCRIT_ROLE_ID = 1284899575856889866L;
+    public static long CHEF_ROLE_ID = 1324414953385496586L;
+
     public DiscordBot(String token, CDIInscriptionBotPlugin plugin) {
         this.token = token;
         this.plugin = plugin;
@@ -49,6 +52,12 @@ public class DiscordBot {
             Commands.slash("unlink", "Unlink your Minecraft account from your Discord account")
                 .setNameLocalization(DiscordLocale.FRENCH, "unlink")
                 .setDescriptionLocalization(DiscordLocale.FRENCH, "Délier votre compte Minecraft de votre compte Discord")
+        );
+
+        commands.addCommands(
+            Commands.slash("invite", "Get an invite link to invite a player to your team (team leader only)")
+                .setNameLocalization(DiscordLocale.FRENCH, "invite")
+                .setDescriptionLocalization(DiscordLocale.FRENCH, "Inviter un joueur dans votre équipe (chef d'équipe uniquement)")
         );
 
         commands.queue();

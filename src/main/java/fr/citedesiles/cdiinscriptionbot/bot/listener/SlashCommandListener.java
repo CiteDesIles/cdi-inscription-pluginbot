@@ -25,6 +25,9 @@ public class SlashCommandListener extends ListenerAdapter {
             case "unlink":
                 LinkCommand.unlink(event);
                 break;
+            case "invite":
+                event.reply("working on it").queue();
+                break;
         }
     }
 }

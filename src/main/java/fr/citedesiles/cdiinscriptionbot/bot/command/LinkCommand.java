@@ -1,8 +1,10 @@
 package fr.citedesiles.cdiinscriptionbot.bot.command;
 
 import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.bot.DiscordBot;
 import fr.citedesiles.cdiinscriptionbot.objects.RequestToLink;
 import fr.citedesiles.cdiinscriptionbot.utils.DatabaseRequestManager;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 public class LinkCommand {
@@ -25,6 +27,8 @@ public class LinkCommand {
         }
 
         DatabaseRequestManager.linkPlayer(request.getUuid(), event.getUser().getId());
+        Role role = event.getGuild().getRoleById(DiscordBot.INSCRIT_ROLE_ID);
+        event.getGuild().addRoleToMember(event.getMember(), role).queue();
         event.reply("Vous avez été lié").setEphemeral(true).queue();
     }
 
