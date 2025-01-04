@@ -14,6 +14,7 @@ public class ExpirationRunnable extends BukkitRunnable {
 
     @Override
     public void run() {
-        RequestManager requestManager = plugin.requestManager();
+        plugin.requestManager().removeAtickToAllRequest();
+        plugin.inviteManager().tick();
     }
 }

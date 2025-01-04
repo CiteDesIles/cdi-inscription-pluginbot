@@ -1,6 +1,7 @@
 package fr.citedesiles.cdiinscriptionbot;
 
 import fr.citedesiles.cdiinscriptionbot.commands.LinksCommandExecutor;
+import fr.citedesiles.cdiinscriptionbot.objects.InviteManager;
 import fr.citedesiles.cdiinscriptionbot.objects.RequestManager;
 import fr.citedesiles.cdiinscriptionbot.mysql.DatabaseManager;
 import fr.citedesiles.cdiinscriptionbot.runnable.ExpirationRunnable;
@@ -16,11 +17,13 @@ public class CDIInscriptionBotPlugin extends JavaPlugin {
     private ConfigManager configManager;
     private static CDIInscriptionBotPlugin plugin;
     private RequestManager requestManager;
+    private InviteManager inviteManager;
 
     @Override
     public void onEnable() {
         configManager = new ConfigManager(this);
         requestManager = new RequestManager();
+        inviteManager = new InviteManager();
         plugin = this;
 
         try {
@@ -55,5 +58,8 @@ public class CDIInscriptionBotPlugin extends JavaPlugin {
     }
     public RequestManager requestManager() {
         return requestManager;
+    }
+    public InviteManager inviteManager() {
+        return inviteManager;
     }
 }

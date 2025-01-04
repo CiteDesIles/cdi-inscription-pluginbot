@@ -1,6 +1,7 @@
 package fr.citedesiles.cdiinscriptionbot.bot.listener;
 
 import fr.citedesiles.cdiinscriptionbot.CDIInscriptionBotPlugin;
+import fr.citedesiles.cdiinscriptionbot.bot.command.InviteCommand;
 import fr.citedesiles.cdiinscriptionbot.bot.command.LinkCommand;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -26,7 +27,7 @@ public class SlashCommandListener extends ListenerAdapter {
                 LinkCommand.unlink(event);
                 break;
             case "invite":
-                event.reply("working on it").queue();
+                InviteCommand.invite(event);
                 break;
         }
     }
