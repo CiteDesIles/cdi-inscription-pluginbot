@@ -1,6 +1,7 @@
 package fr.citedesiles.cdiinscriptionbot;
 
 import fr.citedesiles.cdiinscriptionbot.commands.LinksCommandExecutor;
+import fr.citedesiles.cdiinscriptionbot.listener.*;
 import fr.citedesiles.cdiinscriptionbot.objects.InviteManager;
 import fr.citedesiles.cdiinscriptionbot.objects.RequestManager;
 import fr.citedesiles.cdiinscriptionbot.mysql.DatabaseManager;
@@ -45,6 +46,11 @@ public class CDIInscriptionBotPlugin extends JavaPlugin {
 
         bot = new DiscordBot(getConfig().getString("token"), this);
         bot.start();
+
+        getServer().getPluginManager().registerEvents(new OnJoin(), this);
+        getServer().getPluginManager().registerEvents(new OnBreak(), this);
+        getServer().getPluginManager().registerEvents(new OnDamage(), this);
+        getServer().getPluginManager().registerEvents(new OnMove(), this);
 
         ExpirationRunnable expirationRunnable = new ExpirationRunnable(this);
         expirationRunnable.runTaskTimer(this, 0, 0);
