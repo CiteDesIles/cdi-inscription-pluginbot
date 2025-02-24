@@ -12,7 +12,7 @@ public class OnMove implements Listener {
         if(event.getPlayer().isOp()) {
             return;
         }
-        if(event.getPlayer().getLocation().distance(CDIInscriptionBotPlugin.spawn) >= 30 && event.getPlayer().getGameMode().equals(GameMode.ADVENTURE)) {
+        if(event.getPlayer().getLocation().distance(CDIInscriptionBotPlugin.spawn) >= 75 && event.getPlayer().getGameMode().equals(GameMode.ADVENTURE)) {
             event.getPlayer().teleport(CDIInscriptionBotPlugin.spawn);
         }
     }
